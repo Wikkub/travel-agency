@@ -1,12 +1,12 @@
 package pl.kubik.itaka.entity;
 
 import jakarta.persistence.*;
-import pl.kubik.itaka.demo.enums.Food;
+import pl.kubik.itaka.enums.Food;
 
 import java.time.LocalDate;
 
 @Entity
-@Table
+@Table (name = "trips")
 public class Trip {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

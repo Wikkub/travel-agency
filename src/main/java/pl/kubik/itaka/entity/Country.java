@@ -3,7 +3,7 @@ package pl.kubik.itaka.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table
+@Table (name = "counties")
 public class Country {
 
     @Id

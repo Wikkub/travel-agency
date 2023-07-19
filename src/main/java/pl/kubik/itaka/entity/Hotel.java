@@ -3,7 +3,7 @@ package pl.kubik.itaka.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table
+@Table (name = "hotels")
 public class Hotel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,5 +13,6 @@ public class Hotel {
     private String description;
 
     @ManyToOne()
+    @JoinColumn(name = "city_id")
     private City city;
 }

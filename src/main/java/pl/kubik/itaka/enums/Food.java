@@ -1,4 +1,4 @@
-package pl.kubik.itaka.demo.enums;
+package pl.kubik.itaka.enums;
 
 public enum Food {
     BB("bed & breakfast"),
