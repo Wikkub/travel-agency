@@ -1,9 +1,16 @@
 package pl.kubik.itaka.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import pl.kubik.itaka.dto.CreateHotelDto;
 
 @Entity
-@Table (name = "hotels")
+@Table(name = "hotels")
+@Setter
+@Getter
+@NoArgsConstructor
 public class Hotel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,4 +22,11 @@ public class Hotel {
     @ManyToOne()
     @JoinColumn(name = "city_id")
     private City city;
+
+    public Hotel(CreateHotelDto dto) {
+        this.name = dto.getName();
+        this.standard = dto.getStandard();
+        this.description = dto.getDescription();
+        this.city = new City();
+    }
 }

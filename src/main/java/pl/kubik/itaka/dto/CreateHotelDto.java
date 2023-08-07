@@ -1,6 +1,12 @@
 package pl.kubik.itaka.dto;
 
-public class CreateHotelDto {
+import lombok.Getter;
 
+@Getter
+public class CreateHotelDto {
+    private String name;
+    private int standard;
+    private String description;
+    private Long cityId;
 
 }

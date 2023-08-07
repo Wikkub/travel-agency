@@ -1,12 +1,17 @@
 package pl.kubik.itaka.controller;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import pl.kubik.itaka.dto.CreateHotelDto;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RestController;
+import pl.kubik.itaka.repository.HotelRepository;
+import pl.kubik.itaka.service.HotelService;
 
+@RestController
 public class HotelController {
+
+    @Autowired
+    private HotelService hotelService;
+    @Autowired
+    HotelRepository hotelRepository;
 
 
 }

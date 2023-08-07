@@ -21,7 +21,7 @@ public class ContinentController {
     private ContinentRepository continentRepository;
 
     @PostMapping("/continents")
-    ResponseEntity<?> create (@RequestBody CreateContinentDto dto) {
+    ResponseEntity<?> create(@RequestBody CreateContinentDto dto) {
         Continent continent = continentService.create(dto);
         return new ResponseEntity<>(continent, HttpStatus.CREATED);
     }
@@ -40,7 +40,7 @@ public class ContinentController {
 
     @DeleteMapping("/continents/{continentId}")
     ResponseEntity<?> deleteOne(@PathVariable long continentId) {
-        Continent continent = continentService.removeById(continentId);
+        continentService.removeById(continentId);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 

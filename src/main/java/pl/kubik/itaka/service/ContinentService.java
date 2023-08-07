@@ -30,18 +30,17 @@ public class ContinentService {
     }
 
     public Continent getById(long continentId) {
-        Optional<Continent> optionalContinent= continentRepository.findById(continentId);
-        if(optionalContinent.isEmpty()) {
+        Optional<Continent> optionalContinent = continentRepository.findById(continentId);
+        if (optionalContinent.isEmpty()) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Continent not found");
         }
         Continent continent = optionalContinent.get();
         return continent;
     }
 
-    public Continent removeById(long continentId) {
-        Optional<Continent> optionalContinent= continentRepository.findById(continentId);
+    public void removeById(long continentId) {
+        Optional<Continent> optionalContinent = continentRepository.findById(continentId);
         Continent continent = optionalContinent.get();
-        continentRepository.deleteById(continentId);
-        return continent;
+        continentRepository.delete(continent);
     }
 }
