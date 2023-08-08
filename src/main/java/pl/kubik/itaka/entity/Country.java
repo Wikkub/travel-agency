@@ -7,7 +7,7 @@ import lombok.Setter;
 import pl.kubik.itaka.dto.CreateCountryDto;
 
 @Entity
-@Table(name = "counties")
+@Table(name = "countries")
 @Setter
 @Getter
 @NoArgsConstructor

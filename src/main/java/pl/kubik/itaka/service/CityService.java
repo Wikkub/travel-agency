@@ -12,7 +12,7 @@ import pl.kubik.itaka.repository.CityRepository;
 import java.util.Optional;
 
 @Service
-public class CityServices {
+public class CityService {
 
     @Autowired
     private CityRepository cityRepository;
