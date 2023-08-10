@@ -9,8 +9,10 @@ import pl.kubik.itaka.entity.Airport;
 import pl.kubik.itaka.entity.City;
 import pl.kubik.itaka.entity.Trip;
 import pl.kubik.itaka.repository.TripRepository;
-
 import java.text.ParseException;
+import java.util.Date;
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TripService {
@@ -35,5 +37,26 @@ public class TripService {
         trip.setAirport(airport);
         tripRepository.save(trip);
         return trip;
+    }
+
+    public List<Trip> getTripsByCity(Long cityId) {
+        return this.tripRepository.findAllByCityId(cityId);
+    }
+
+    public Trip getById(long tripId) {
+        Optional<Trip> optionalTrip = tripRepository.findById(tripId);
+        if (optionalTrip.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Trip not found");
+        }
+        Trip trip= optionalTrip.get();
+        return trip;
+    }
+
+    public List<Date> getTripsByStartDate(Date startDate) {
+        return null;
+    }
+
+    public List<Trip> getTripsByAirport(Long airportId) {
+        return this.tripRepository.findAllByAirportId(airportId);
     }
 }
